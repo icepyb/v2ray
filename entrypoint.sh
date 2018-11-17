@@ -1,21 +1,17 @@
-#cd /v2raybin
-#echo -e "$CONFIG_JSON" > config.json
-#if [ "$CERT_PEM" != "$KEY_PEM" ]; then
-#  echo -e "$CERT_PEM" > cert.pem
-#  echo -e "$KEY_PEM"  > key.pem
-#fi
-
-cd /v2ray
-wget -O v2ray.zip http://github.com/v2ray/v2ray-core/releases/download/v$VER/v2ray-linux-64.zip
-unzip v2ray.zip 
-if [ ! -f "v2ray" ]; then
-  mv /v2ray/v2ray-v$VER-linux-64/v2ray .
-  mv /v2ray/v2ray-v$VER-linux-64/v2ctl .
-  mv /v2ray/v2ray-v$VER-linux-64/geoip.dat .
-  mv /v2ray/v2ray-v$VER-linux-64/geosite.dat .
+cd /v2raybin
+if [ "${CONFIG_URL}" ]
+then
+    curl -L -o config.json "${CONFIG_URL}"
+    sed -i "s/${OID}/${UUID}/g" config.json
+else
+    echo -e -n "$CONFIG_JSON1" > config.json
+    echo -e -n "$UUID" >> config.json
+    echo -e -n "$CONFIG_JSON2" >> config.json
 fi
 
-cp -f /config.json .
-chmod +x v2ray v2ctl
-sed -i "s/your_uuid/$UUID/g" config.json
+if [ "$CERT_PEM" != "$KEY_PEM" ]; then
+echo -e "$CERT_PEM" > cert.pem
+echo -e "$KEY_PEM"  > key.pem
+fi
+
 ./v2ray
