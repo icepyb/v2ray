@@ -17,4 +17,4 @@ v2ray 部署在 openshift starter
 youtube频道：https://www.youtube.com/channel/UClceV39J1Z_9D4_mHkBZrMg
 
 
-另有原始项目wangyi2005/v2ray已fork不知道能不能用
+另，原始项目wangyi2005/v2ray已fork，只要把dockerfile的注释符全部打开即可。
