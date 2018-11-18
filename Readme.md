@@ -6,6 +6,9 @@
 </p>
 <hr>
 
+<h3>这个版本的dockerfile已经用不了了，最新版v2ray core的release已经不是这个目录结构。
+看myV2分支吧，已经推到dockerhub并部署到os。</h3>
+
 ## 一、先说一下V2的os部署：
 * 原始项目：yulahuyed/v2ray，docker file：yulahuyed/v2ray/dockerfile。已fork至v2ray-1。对应生成docker image：[b1nitp7iw/v2ray](https://hub.docker.com/r/b1nitp7iw/v2ray/)。**这个image里有酸酸的部署，还没学会用。**
 * 关联项目：wangyi2005/v2ray，已经GEGE了。已fork，即本项目。master分支里dockerfile注释了。available分支里把dockerfile的注释符全部打开了，应该就可用。我就没有去生成image了。
@@ -23,6 +26,7 @@ v2ray 部署在 openshift starter
 ```
 
 ## 三、我的实验报告
+
 技术宅的尿性，这里讲一下最原始版（其实是因为已经有image）的使用方法。并不通俗易懂的。
 * os建项目，点开选部署镜像。
 * 镜像就是上面的原始image了，查找，部署。
