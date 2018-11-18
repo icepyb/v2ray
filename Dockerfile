@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+ARG TZ='Asia/Shanghai'
+
 ENV CONFIG_JSON1="{\n  \"log\": {\n    \"loglevel\": \"warning\"\n  },\n  \"inbound\": {\n    \"protocol\": \"vmess\",\n    \"port\": 8080,\n    \"settings\": {\n      \"clients\": [\n        {\n          \"id\": \""
 ENV UUID="38c9e20b-f90f-4bc6-a909-fa2b10917925"
 ENV CONFIG_JSON2="\",\n          \"alterId\": 64,\n          \"security\": \"aes-128-cfb\"\n        }\n      ]\n    },\n    \"streamSettings\": {\n      \"network\": \"ws\"\n    }\n  },\n  \"inboundDetour\": [],\n  \"outbound\": {\n    \"protocol\": \"freedom\",\n   \"settings\": {}\n  }\n}"
